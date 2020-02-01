@@ -1,0 +1,5 @@
+{
+    "board": "arduino:avr:uno",
+    "port": "COM3",
+    "sketch": "YMFC-AL_setup\\YMFC-AL_setup.ino"
+}

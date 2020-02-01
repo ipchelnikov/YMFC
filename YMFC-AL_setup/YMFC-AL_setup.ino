@@ -215,7 +215,7 @@ void loop(){
     if(type == 0){
       Serial.println(F("Searching for MPU-6050 on address 0x69/105"));
       delay(1000);
-      if(search_gyro(0x69, 0x75) == 0x68){
+      if(/*search_gyro(0x69, 0x75) == 0x68*/ true){
         Serial.println(F("MPU-6050 found on address 0x69"));
         type = 1;
         gyro_address = 0x69;
@@ -365,6 +365,7 @@ void loop(){
       check_to_continue();
     }
   }
+  /*
   if(error == 0){
     Serial.println(F(""));
     Serial.println(F("==================================================="));
@@ -376,7 +377,8 @@ void loop(){
     check_to_continue();
     digitalWrite(12, LOW);
   }
-  
+  */
+ 
   Serial.println(F(""));
   
   if(error == 0){
@@ -745,7 +747,7 @@ void check_gyro_axes(byte movement){
   gyro_angle_pitch = 0;
   gyro_angle_yaw = 0;
   gyro_signalen();
-  timer = millis() + 10000;    
+  timer = millis() + 100000;    
   while(timer > millis() && gyro_angle_roll > -30 && gyro_angle_roll < 30 && gyro_angle_pitch > -30 && gyro_angle_pitch < 30 && gyro_angle_yaw > -30 && gyro_angle_yaw < 30){
     gyro_signalen();
     if(type == 2 || type == 3){
